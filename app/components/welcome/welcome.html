@@ -1,0 +1,238 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div id="wrapper">
+
+</div>
+
+<!-- <div class="animateme">
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div> -->
+
+<div class="full-width bg-truck">
+    <div class="bg-primary">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" style="margin-top: 10%;">
+                    <div class="main-head text-center">
+                        <h1>#NFL</h1>
+                        <h4>#Note #For #Life</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="content">
+    <!-- Example row of columns -->
+    <div class="row">
+
+        <div class="full-width text-center">
+            <h1>
+                <span class="bd-bottm">Favourite Notes</span>
+            </h1>
+            <br>
+            <h4>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book.
+            </h4>
+            <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-3 col-md-3z " ng-repeat="data in dataTable | filter : {isLiked:true}">
+            <div class="thumbnail full-thumb "
+                 style="background-image:url(assets/images/paper1.png)">
+                <div class="full-width bg-trans">
+                    <br><br>
+                    <h6 class="transText">{{data.created | date : "MMM d, y h:mm:ss a"}}</h6>
+                    <h3 class="transText">{{data.noteTitle}}</h3>
+                    <h4 class="transText">{{data.noteText}}</h4>
+                    <div class="caption">
+                        <p class="transCaptionText">
+                            <a href="javascript:void(0);" class="btn btn-link btn-sm" ng-click="ViewDetails(data)">View
+                                Details</a>
+                            <a href="javascript:void(0);" class="btn btn-link btn-sm" ng-click="deleteNote(data)">Delete</a>
+                            <a href="javascript:void(0);" class="btn btn-link btn-sm" ng-click="editNote(data)">Edit</a>
+                        </p>
+                    </div>
+                </div>
+                <!--<img ng-src="{{data.venue.image}}" alt="...">-->
+            </div>
+
+        </div>
+        <div class="full-width text-center">
+            <h1>
+                <span class="bd-bottm">All Notes</span>
+            </h1>
+            <br>
+            <h4>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book.
+            </h4>
+            <br>
+            <div class="full-width mg-bttm">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <input type="text" ng-model="searchInput" ng-change="getFilteredDataList()" placeholder="Search Note..." class="form-control">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <ul class="list-inline pull-right">
+                        <li>Sort : </li>
+                        <li>
+                            <a href="" ng-click="sorting()">
+                                <span ng-if="sorted">ASC</span>
+                                <span ng-if="!sorted">DESC</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="list-inline pull-right">
+                        <li>
+                            <label class="radio" style="margin: 0px;">
+                                <input type="checkbox" style="height: auto;" ng-model="grid" name="gridview"> Grid View
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div class="col-xs-12 col-sm-3 col-md-3z " ng-if="grid" ng-repeat="data in dataTable | filter : searchInput | orderBy : tableOrder">
+
+            <div class="thumbnail full-thumb "
+                 style="background-image:url(assets/images/paper1.png)">
+                <div class="full-width bg-trans">
+                    <br><br>
+                    <h6 class="transText">{{data.created | date : "MMM d, y h:mm:ss a"}}</h6>
+                    <h3 class="transText">{{data.noteTitle}}</h3>
+                    <h4 class="transText">{{data.noteText}}</h4>
+                    <div class="caption">
+                        <p class="transCaptionText">
+                            <a href="javascript:void(0);" class="btn btn-link btn-sm" ng-click="ViewDetails(data)">View
+                                Details</a>
+                            <a href="javascript:void(0);" class="btn btn-link btn-sm" ng-click="deleteNote(data)"><span class="fa fa-trash-alt"></span>Delete</a>
+                            <a href="javascript:void(0);" class="btn btn-link btn-sm" ng-click="editNote(data)">Edit</a>
+                        </p>
+                    </div>
+                </div>
+                <!--<img ng-src="{{data.venue.image}}" alt="...">-->
+            </div>
+
+        </div>
+        <div class="full-width" ng-if="!grid">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="10%">Sr.no</th>
+                        <th width="40%">Note</th>
+                        <th width="30%">Created on</th>
+                        <th width="20%">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in dataTable | filter : searchInput | orderBy : tableOrder">
+                        <td>{{$index+1}}</td>
+                        <td>
+                            <h3>{{data.noteTitle}}</h3>
+                            <h6 class="translateText">{{data.noteText}}</h6>
+                        </td>
+                        <td>{{data.created | date : "MMM d, y h:mm:ss a"}}</td>
+                        <td>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-sm" ng-click="ViewDetails(data)">View
+                                Details</a>
+                            <a href="javascript:void(0);" class="btn btn-danger btn-sm" ng-click="deleteNote(data)"><span class="fa fa-trash-alt"></span>Delete</a>
+                            <a href="javascript:void(0);" class="btn btn-default btn-sm" ng-click="editNote(data)">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br><br>
+        <div class="addNote">
+            <div class="full-width addNoteTab notePad">
+                <h4>
+                    Add Note
+                    <a href="" ng-click="toggleNote = !toggleNote" class="pull-right">
+                    <span ng-if="toggleNote" class="fa fa-arrow-down"></span>
+                    <span ng-if="!toggleNote" class="fa fa-arrow-up"></span>
+                    </a>
+                </h4>
+            </div>
+            <div class="notePad" ng-if="toggleNote">
+                <div class="full-width addNoteinputDetail">
+                    <input type="text" ng-model="noteData.noteTitle" class="form-control" placeholder="Title" name="title" required="required">
+                </div>
+                <div class="full-width addNoteinputTextareaDetail">
+                    <textarea ng-model="noteData.noteText" class="form-control" placeholder="Description" required="required" name="text"></textarea>
+                </div>
+                <div class="full-width inputChek">
+                    <label class="radio">
+                        <input type="checkbox" ng-model="noteData.isLiked" placeholder="Title" name="title" required="required"> Mark as Favourite Note
+                    </label>
+                </div>
+                <div class="full-width">
+                    <span ng-show="noteError" class="noteError">{{noteError}} <button type="button" class="close" ng-click="noteError = false">×</button></span>
+                </div>
+                <div class="full-width formSubmitBtn">
+                    <button type="submit"  ng-if="context === 'Add'" ng-click="submitForm('Add')" class="btn btn-primary full-width">Save Note</button>
+                    <button type="submit"  ng-if="context === 'Edit'" ng-click="submitForm('Edit')" class="btn btn-primary full-width">Update Note</button>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <hr>
+    <footer>
+        <p>&copy; Company 2014</p>
+    </footer>
+</div>
+
+<!-- /container -->
+
+
+<!--=========================== Product Pop up details ======================-->
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="dismissModal()">&times;</button>
+                <h4 class="modal-title">Detailed view</h4>
+            </div>
+            <div class="modal-body">
+                <div class="noteDetailView">
+                <br>
+                    <h6 class="text-right">{{detailedData.created | date : fullDate}}</h6>
+                    <h2 class="text-center modlTextHead"><b>{{detailedData.noteTitle}}</b></h2>
+
+                <h3 class="text-center modlText">{{detailedData.noteText}}</h3>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left" ng-click="editNote(detailedData)">Edit</button>
+                <button type="button" class="btn btn-default" ng-click="dismissModal()">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<header ng-controller="UserController" scroll-spy>
+
+    <div class="navbar navbar-default navbar-static-top nv-fixed">
+        <div class="container header-containe">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="text-align:left;padding: 0px;" href="index.html"><h4
+                        style="font-family: MuseoSans-900 !important;font-size:31px;color:#fff;">#NFL</h4></a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right">
+
+                <!-- <ul class="nav navbar-nav navbar-right nv-link">
+                    <li><a href="javascript:void(0);" class="btn btn-link head-btn">Live Data</a></li>
+                    <li><a href="javascript:void(0);" class="btn btn-link head-btn">App</a></li>
+                    <li><a href="javascript:void(0);" class="btn btn-link head-btn">About Us</a></li>
+                    <li><a href="javascript:void(0);" class="btn btn-link head-btn">Ambassador</a></li>
+                    <li><a href="javascript:void(0);" class="btn btn-link head-btn">Contact</a></li>
+                </ul> -->
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+</header>
+
+
+<script>
+    $(document).ready(function () {
+        if ($(window).width() > 769) {
+            $(".head-logo").css('color', 'orangered');
+            $(".nv-link  a").css('color', '#fff');
+            $(".active  a").css('color', '#fff');
+        } else {
+            $(".head-logo").css('color', '#fff');
+            $(".nv-link  a").css('color', 'orangered');
+            $(".active  a").css('color', 'orangered');
+        }
+    });
+</script>
+<script>
+    $(window).scroll(function () {
+        if ($(this).width() > 769) {
+
+
+            if ($(this).scrollTop() > 650) {
+                $(".nv-fixed").css('background', '#000');
+                $(".nv-fixed").css('position', 'fixed');
+                $(".nv-fixed").css('opacity', '1');
+                $(".nv-fixed").css('transtion', 'all 0.5s ease-in-out 0s');
+                $(".navbar-brand").css('padding', '0px');
+                $(".navbar-brand h4").css('color', '#fff');
+                $(".nv-link  a").css('color', '#fff');
+                $(".active  a").css('color', '#fff');
+
+                $(".head-logo").css('color', '#fff');
+
+            } else {
+                $(".nv-fixed").css('background', 'transparent');
+                $(".nv-fixed").css('position', 'fixed');
+                $(".nv-link  a").css('color', '#fff');
+                $(".active  a").css('color', '#fff');
+                $(".navbar-brand h4").css('color', '#fff');
+                $(".head-logo").css('color', '#fff');
+                $(".bt-dropdown").css('color', '#58bcb9');
+
+            }
+
+
+        } else {
+            if ($(this).scrollTop() > 50) {
+                $(".nv-fixed").css('background', '#000');
+                $(".nv-fixed").css('position', 'fixed');
+                $(".nv-fixed").css('opacity', '1');
+                $(".nv-fixed").css('transtion', 'all 0.5s ease-in-out 0s');
+                $(".navbar-brand").css('padding', '0px');
+                $(".nv-link  a").css('color', '#000');
+                $(".active  a").css('color', '#000');
+                $(".head-logo").css('color', '#000');
+            } else {
+                $(".nv-fixed").css('background', '#000');
+                $(".nv-fixed").css('position', 'fixed');
+                $(".nv-fixed").css('opacity', '1');
+                $(".nv-fixed").css('transtion', 'all 0.5s ease-in-out 0s');
+                $(".navbar-brand").css('padding', '0px');
+                $(".nv-link  a").css('color', '#fff');
+                $(".active  a").css('color', '#fff');
+                $(".head-logo").css('color', '#fff');
+            }
+        }
+
+    });
+</script>
+<!--================================== ends here =====================================-->
+<style>
+
+
+    .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+        background-color: transparent;
+    }
+
+</style>
+<script>
+
+</script>
+
+
+
