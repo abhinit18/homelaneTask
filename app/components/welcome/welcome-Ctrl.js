@@ -3,7 +3,7 @@ App.controller('WelcomeController', function ($scope, $http, $cookies, $cookieSt
 //console.log(MY_CONSTANT.url);
 
     $scope.Product = function(){
-    $scope.dataTable = $localStorage.notes;
+    $scope.dataTable = $localStorage.notes?$localStorage.notes:[];
     $scope.tableOrder = '-created';
     }
     $scope.Product();

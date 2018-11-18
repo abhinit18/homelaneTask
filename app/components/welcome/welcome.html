@@ -74,6 +74,11 @@
             </div>
 
         </div>
+        <div class="full-width" ng-if="dataTable.length === 0">
+            <h1 class="text-center">
+                No Notes found..
+            </h1>
+        </div>
         <div class="full-width text-center">
             <h1>
                 <span class="bd-bottm">All Notes</span>
@@ -133,6 +138,11 @@
             </div>
 
         </div>
+        <div class="full-width" ng-if="dataTable.length === 0">
+            <h1 class="text-center">
+                No Notes found..
+            </h1>
+        </div>
         <div class="full-width" ng-if="!grid">
             <table class="table table-striped">
                 <thead>
@@ -160,6 +170,11 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="full-width" ng-if="dataTable.length === 0">
+            <h1 class="text-center">
+                No Notes found..
+            </h1>
+            </div>
         </div>
         <br><br>
         <div class="addNote">
@@ -222,7 +237,7 @@
             <div class="modal-body">
                 <div class="noteDetailView">
                 <br>
-                    <h6 class="text-right">{{detailedData.created | date : fullDate}}</h6>
+                    <h6 class="text-right">{{detailedData.created | date : "MMM d, y h:mm:ss a"}}</h6>
                     <h2 class="text-center modlTextHead"><b>{{detailedData.noteTitle}}</b></h2>
 
                 <h3 class="text-center modlText">{{detailedData.noteText}}</h3>
